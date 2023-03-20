@@ -1,8 +1,13 @@
 project:
   type: website
 
+execute:
+  echo: false
+  warning: false
+  # cache: false
+
 website:
-  title: "bio-idx-wg"
+  title: "MBON Bio-Idx-WG"
   navbar:
     left:
       - href: index.qmd

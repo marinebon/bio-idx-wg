@@ -1,11 +1,153 @@
 ---
-title: "bio-idx-wg"
+title: "Home"
+editor_options: 
+  chunk_output_type: console
 ---
 
-This is a Quarto website.
+## Kickoff Survey 
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+* [**Survey** of Priorities for Biodiversity Indicators MarineBON.org Working Group](https://docs.google.com/forms/d/e/1FAIpQLScUmZszSqUv2ER6lc8xFl-a8Lwn8OpA16LHoTHBYkcdWgQIIw/viewform)
+* [**Priorities** for MBON Biodiversity Indicators Working Group - Google Docs](https://docs.google.com/document/d/1Njq1BCFeByJEJUhvVC6PxcF20uKOrGWb8xNG2yh-vdI/edit#heading=h.1w03je9uy705)
 
 ```{r}
-1 + 1
+librarian::shelf(
+  dplyr, DT, purrr, readr, stringr, tidyr)
+# options(readr.show_col_types = FALSE)
+
+survey_csv <- "https://docs.google.com/spreadsheets/d/1xohI010hAwtbSyLpOr1-oFG5-W3ASiRC8EmHrDjNa0k/export?format=csv&gid=1947036924"
+
+d <- read_csv(survey_csv, col_types = "c")
+cols <- colnames(d)
+
+emails <- d |> 
+  select(email = `Your email? (optional)`) |> 
+  filter(!is.na(email)) |> 
+  pull(email)
+
+qs <- cols |>
+  str_subset("\\[") |> 
+  str_split_i(" \\[", 1) |> 
+  unique()
+
+# d <- d |> 
+#   mutate(
+#     q = q |> str_split_i("\n", 1))
+
+summarize_q <- function(q, d){
+  # q = "Regions"
+  d_q <- d |> 
+    select(starts_with(q)) |> 
+    pivot_longer(
+      everything(),
+      names_to  = "option",
+      values_to = "val_str",
+      values_drop_na = T) |> 
+    mutate(
+      option  = str_replace(
+        option |> str_replace("\n",""), 
+        ".*\\[(.*)\\]", "\\1"),
+      val_int = recode(
+        val_str,
+        "1. Critical"          = 3L,
+        "2. Important"         = 2L,
+        "3. Desirable"         = 1L,
+        "4. Least Interesting" = -1L)) |> 
+    group_by(option) |> 
+    summarise(
+      val = sum(val_int)) |> 
+    arrange(desc(val), option)
+}
+
+d_q <- tibble(
+  q    = qs |> str_split_i("\n", 1),
+  data = map(q, summarize_q, d)) |> 
+  unnest(data)
+
+dt_q <- function(q){
+  d_q |> 
+    filter(q == !!q) |> 
+    select(option, val) |> 
+    datatable(
+      options = list(pageLength = 10))
+}
 ```
+
+
+::: {.callout-note collapse="true"}
+## Responses
+
+Number of responses: **`r nrow(d)`**
+
+Emails:
+
+1. `r paste(sort(emails), collapse = "\n1. ")`
+1. anonymous: `r nrow(d) - length(emails)`
+
+:::
+
+::: {.panel-tabset}
+
+### Indicators
+
+```{r}
+dt_q("Indicators")
+```
+
+### Regions
+
+Regions of interest, ie spatial analytical units to generate time series of indicators
+
+```{r}
+dt_q("Regions")
+```
+
+### Products
+
+```{r}
+dt_q("Products")
+```
+
+### Audience
+
+Audience for whom are we generating these indicators and products
+
+```{r}
+dt_q("Audience")
+```
+
+### Industries
+
+```{r}
+dt_q("Industries")
+```
+
+### Initiatives
+
+```{r}
+dt_q("Initiatives")
+```
+
+### Partners
+
+```{r}
+dt_q("Partners")
+```
+
+### Data
+
+Observational and attribute data to use for developing indicators
+
+```{r}
+dt_q("Data")
+```
+
+### Portals
+
+Portals to distribute indicators
+
+```{r}
+dt_q("Portals")
+```
+
+:::
+
