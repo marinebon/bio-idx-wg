@@ -11,24 +11,65 @@ editor_options:
 
 ```{r}
 librarian::shelf(
-  dplyr, DT, purrr, readr, stringr, tidyr)
+  dplyr, DT, glue, purrr, readr, stringr, tidyr)
 
 survey_csv <- "https://docs.google.com/spreadsheets/d/1xohI010hAwtbSyLpOr1-oFG5-W3ASiRC8EmHrDjNa0k/export?format=csv&gid=1947036924"
 
-d <- read_csv(survey_csv, col_types = "c")
-cols <- colnames(d)
+d <- read_csv(survey_csv, col_types = "c") |> 
+  rename(email = `Your email? (optional)`)
 
 n_respondents <- nrow(d)
 emails <- d |> 
-  select(email = `Your email? (optional)`) |> 
   filter(!is.na(email)) |> 
   arrange(email) |> 
   pull(email)
 
+cols <- colnames(d)
 qs <- cols |>
   str_subset("\\[") |> 
   str_split_i(" \\[", 1) |> 
   unique()
+d_cols_other <- tibble(
+  col      = cols |> 
+    str_subset("What other"),
+  question = col |> 
+    str_replace("\n"," ") |> 
+    str_replace(".*(What other .*)","\\1"),
+  q        = question |> 
+    str_replace("What other ([a-z]+) .*", "\\1") |> 
+    str_to_sentence())
+col2q = setNames(d_cols_other$q, d_cols_other$col)
+d_other <- d |> 
+  select(all_of(c("email", d_cols_other$col))) |> 
+  pivot_longer(
+    !email,
+    names_to  = "col",
+    values_to = "comment",
+    values_drop_na = T) |> 
+  mutate(
+    q = recode(col, !!!col2q)) |> 
+  arrange(q, email)
+
+get_question <- function(q){
+  d_cols_other |> 
+    filter(q == !!q) |> 
+    pull(question)
+}
+
+get_comments <- function(q){
+  # DEBUG: q="General"
+  d_other |> 
+    filter(q == !!q) |> 
+    select(respondent = email, comment) |> 
+    replace_na(
+      list(respondent = "anonymous")) |> 
+    mutate(
+      md = glue("
+        1. {respondent}  
+          {comment}")) |> 
+    pull(md) |> 
+    paste(collapse = "\n")
+}
 
 summarize_q <- function(q, d){
   # DEBUG: q = "Regions"
@@ -59,6 +100,7 @@ d_q <- tibble(
   q    = qs |> str_split_i("\n", 1),
   data = map(q, summarize_q, d)) |> 
   unnest(data)
+# setdiff(d_q$q, unique(d_other$q)) # Audience
 
 dt_q <- function(q){
   d_q |> 
@@ -114,6 +156,11 @@ Note: blanks are not counted in average.
 dt_q("Indicators")
 ```
 
+`r get_question("Indicators")`
+
+`r get_comments("Indicators")`
+
+
 ### Regions
 
 Regions of interest, ie spatial analytical units to generate time series of indicators
@@ -122,11 +169,21 @@ Regions of interest, ie spatial analytical units to generate time series of indi
 dt_q("Regions")
 ```
 
+`r get_question("Regions")`
+
+`r get_comments("Regions")`
+
+
 ### Products
 
 ```{r}
 dt_q("Products")
 ```
+
+`r get_question("Products")`
+
+`r get_comments("Products")`
+
 
 ### Audience
 
@@ -136,11 +193,21 @@ Audience for whom are we generating these indicators and products
 dt_q("Audience")
 ```
 
+`r get_question("Audience")`
+
+`r get_comments("Audience")`
+
+
 ### Industries
 
 ```{r}
 dt_q("Industries")
 ```
+
+`r get_question("Industries")`
+
+`r get_comments("Industries")`
+
 
 ### Initiatives
 
@@ -148,11 +215,21 @@ dt_q("Industries")
 dt_q("Initiatives")
 ```
 
+`r get_question("Initiatives")`
+
+`r get_comments("Initiatives")`
+
+
 ### Partners
 
 ```{r}
 dt_q("Partners")
 ```
+
+`r get_question("Partners")`
+
+`r get_comments("Partners")`
+
 
 ### Data
 
@@ -162,6 +239,11 @@ Observational and attribute data to use for developing indicators
 dt_q("Data")
 ```
 
+`r get_question("Data")`
+
+`r get_comments("Data")`
+
+
 ### Portals
 
 Portals to distribute indicators
@@ -169,6 +251,11 @@ Portals to distribute indicators
 ```{r}
 dt_q("Portals")
 ```
+
+`r get_question("Portals")`
+
+`r get_comments("Portals")`
+
 
 :::
 
