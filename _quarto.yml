@@ -12,13 +12,16 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - surveys.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    code-fold: true
+    # code-summary: "Show the code"
+    code-tools: true
 
 
 
