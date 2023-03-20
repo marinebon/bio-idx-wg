@@ -151,21 +151,39 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Responses
+Respondents &amp; Scoring
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Number of responses: <strong>5</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="respondents" class="level3">
+<h3 class="anchored" data-anchor-id="respondents">Respondents</h3>
+<p>n_respondents: <strong>5</strong></p>
 <p>Emails:</p>
 <ol type="1">
 <li>adriano.lima@aircentre.org</li>
 <li>chris.kelble@noaa.gov</li>
 <li>enrique.montes@noaa.gov</li>
 <li>jeffrey.runge@maine.edu</li>
-<li>anonymous: 1</li>
+<li>n_anonymous: 1</li>
 </ol>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="scoring" class="level3">
+<h3 class="anchored" data-anchor-id="scoring">Scoring</h3>
+<ul>
+<li><code>3</code>: Critical</li>
+<li><code>2</code>: Important</li>
+<li><code>1</code>: Desirable</li>
+<li><code>-1</code>: Least Interesting</li>
+</ul>
+<p>Note: blanks are not counted in average.</p>
+</section>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -176,8 +194,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-87f13d1919e6150532de" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-87f13d1919e6150532de">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19"],["Essential Ocean Variables (EOVs)","Species richness and diversity (e.g. ES(50))","Abundance and distribution of key species","Connectivity indices","Ecosystem services","Essential Biological Variables (EBVs)","Genetic diversity","Habitat extent and condition","Seascapes diversity","Trophic structure","Climate change shifts and sensitivity indicators","Commercially important species","Primary productivity","Species of cultural significance","Sustainable Development Goals (SDGs)","Physical (SST, SSH) averages and trends over time","Phylogenetic diversity","Extinction risk cumulatively of species (e.g. from IUCN RedList, NatureServe)","Metapopulation dynamics (e.g. effective population size)"],[10,10,9,9,9,9,9,9,8,8,7,7,6,6,6,5,4,3,3]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3efa6c3de06f34209af4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3efa6c3de06f34209af4">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19"],["Ecosystem services","Essential Ocean Variables (EOVs)","Species richness and diversity (e.g. ES(50))","Abundance and distribution of key species","Connectivity indices","Essential Biological Variables (EBVs)","Genetic diversity","Habitat extent and condition","Seascapes diversity","Trophic structure","Climate change shifts and sensitivity indicators","Commercially important species","Primary productivity","Species of cultural significance","Sustainable Development Goals (SDGs)","Physical (SST, SSH) averages and trends over time","Phylogenetic diversity","Extinction risk cumulatively of species (e.g. from IUCN RedList, NatureServe)","Metapopulation dynamics (e.g. effective population size)"],[2.25,2,2,1.8,1.8,1.8,1.8,1.8,1.6,1.6,1.4,1.4,1.2,1.2,1.2,1,0.8,0.75,0.6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -186,8 +204,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b325cd5cdeccdab18ffc" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b325cd5cdeccdab18ffc">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],["Ecosystems (IEA)","MPAs (WDPA)","Sanctuaries (ONMS)","Ecologically and Biologically Significant Areas (EBSAs)","Exclusive Economic Zones (EEZs)","Ecoregions, Marine Ecoregions of the World (MEOWs)","Fishing Areas (FAO)","High Seas (e.g. Longhurst, FAO, IHO)","Sanctuary components (ONMS)","State waters","Draw your own","Ecoregions, Large Marine (LME)","Upload your own (e.g. shapefile, GeoJSON)","County waters"],[13,13,13,9,8,7,7,7,7,7,5,5,4,3]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-99773949064cf22c1398" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-99773949064cf22c1398">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],["Ecosystems (IEA)","MPAs (WDPA)","Sanctuaries (ONMS)","Exclusive Economic Zones (EEZs)","Ecologically and Biologically Significant Areas (EBSAs)","Ecoregions, Marine Ecoregions of the World (MEOWs)","Fishing Areas (FAO)","High Seas (e.g. Longhurst, FAO, IHO)","Sanctuary components (ONMS)","State waters","Draw your own","Ecoregions, Large Marine (LME)","Upload your own (e.g. shapefile, GeoJSON)","County waters"],[2.6,2.6,2.6,2,1.8,1.75,1.75,1.75,1.75,1.4,1.25,1.25,1,0.75]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -195,8 +213,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-07cf24c62d8dfdaa28eb" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-07cf24c62d8dfdaa28eb">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Infographics: icons of ecosystem elements are clickable to open maps, figures and multimedia for data-driven storytelling","Dashboards: interactive maps and figures with drop-downs","Programming libraries: functions to easily pull data (eg from APIs), analyze and visualize for regions and indicators of interest","Notification services: email notifications for when species are observed outside expected ranges or some other physical variable is exceeded (eg warming for coral bleaching, or anoxic conditions)","Reports: auto-generated from data for interactive online and static"],[10,8,7,6,6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-764380e0b57691930d1d" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-764380e0b57691930d1d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Dashboards: interactive maps and figures with drop-downs","Infographics: icons of ecosystem elements are clickable to open maps, figures and multimedia for data-driven storytelling","Programming libraries: functions to easily pull data (eg from APIs), analyze and visualize for regions and indicators of interest","Reports: auto-generated from data for interactive online and static","Notification services: email notifications for when species are observed outside expected ranges or some other physical variable is exceeded (eg warming for coral bleaching, or anoxic conditions)"],[2,2,1.75,1.5,1.2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -205,8 +223,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c17720a77a899b65de05" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c17720a77a899b65de05">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Fisheries Management Councils","MPA managers","Sanctuary managers","General public","BOEM regulators","Ecological scientists","Politicians","Physical oceanographers"],[14,14,13,11,9,9,5,3]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-dc16c79ab368f44904d3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-dc16c79ab368f44904d3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Fisheries Management Councils","MPA managers","Sanctuary managers","BOEM regulators","General public","Ecological scientists","Politicians","Physical oceanographers"],[2.8,2.8,2.6,2.25,2.2,1.8,1.25,0.6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -214,8 +232,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9cc6f43a492095effdc6" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9cc6f43a492095effdc6">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["Fishing","Aquaculture","Marine Renewable Energy","Mining","Tourism","Oil &amp; Gas","Shipping"],[12,11,10,9,9,8,8]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8e057391424862a4e744" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8e057391424862a4e744">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["Fishing","Aquaculture","Marine Renewable Energy","Mining","Tourism","Oil &amp; Gas","Shipping"],[3,2.75,2.5,2.25,2.25,2,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -223,8 +241,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-78955b17b32c2f90a574" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-78955b17b32c2f90a574">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Global: UN SDGs, EOVs, EBVs","US: America the Beautiful","Global: 30% x 2030 (CBD, Aichi)"],[10,9,8]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1144831e04676a9e98ac" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1144831e04676a9e98ac">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Global: UN SDGs, EOVs, EBVs","US: America the Beautiful","Global: 30% x 2030 (CBD, Aichi)"],[2.5,2.25,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -232,8 +250,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-545802095e93ce427af1" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-545802095e93ce427af1">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["OBIS.org","IEA","EcoWatch.noaa.gov","Sanctuary Research Coordinators","AquaMaps.org","HubOcean.earth","Seabed 2030"],[15,13,10,10,4,4,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-39e7d52bd2a077cc8600" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-39e7d52bd2a077cc8600">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7"],["OBIS.org","IEA","EcoWatch.noaa.gov","AquaMaps.org","HubOcean.earth","Sanctuary Research Coordinators","Seabed 2030"],[3,2.6,2.5,2,2,2,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -242,8 +260,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d299f58c3a06420f14db" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d299f58c3a06420f14db">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9"],["eDNA","OBIS observations","Acoustics (e.g. MBON BioSound)","Species distributions models (biomass, density, probability)","Telemetry (e.g. MBON BioTrack)","Species distributions expert ranges (e.g. IUCN)","FishBase.org","Bio-Oracle.org","MarineSpecies.org/Traits"],[12,11,10,10,10,9,6,4,4]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-77e53912d1c6c438109e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-77e53912d1c6c438109e">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9"],["OBIS observations","eDNA","Acoustics (e.g. MBON BioSound)","Species distributions models (biomass, density, probability)","Telemetry (e.g. MBON BioTrack)","Species distributions expert ranges (e.g. IUCN)","Bio-Oracle.org","FishBase.org","MarineSpecies.org/Traits"],[2.75,2.4,2,2,2,1.8,1.33333333333333,1.2,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -252,8 +270,8 @@ Responses
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d19a91e6b2a9fc790621" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d19a91e6b2a9fc790621">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11"],["https://OBIS.org","https://MarineBON.org","https://MBON.ioos.us","https://coastwatch.pfeg.noaa.gov/erddap","https://EcoWatch.noaa.gov","https://NCEI.noaa.gov","https://Bioeco.goosocean.org","https://DataOne.org","https://Data.gov","https://GeoBON.org/EBVs/indicators","https://unstats.un.org/sdgs"],[11,9,9,8,8,8,6,5,4,4,3]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>option<\/th>\n      <th>val<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-94b5fe88021a191ebb99" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-94b5fe88021a191ebb99">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11"],["https://OBIS.org","https://coastwatch.pfeg.noaa.gov/erddap","https://EcoWatch.noaa.gov","https://NCEI.noaa.gov","https://MarineBON.org","https://MBON.ioos.us","https://Bioeco.goosocean.org","https://DataOne.org","https://unstats.un.org/sdgs","https://Data.gov","https://GeoBON.org/EBVs/indicators"],[2.75,2.66666666666667,2.66666666666667,2.66666666666667,2.25,2.25,2,1.66666666666667,1.5,1.33333333333333,1.33333333333333]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Option<\/th>\n      <th>Score<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
